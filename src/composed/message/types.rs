@@ -337,7 +337,11 @@ impl Message {
     ///
     /// ## Note
     ///
-    /// Prefer to use SEIPDv1 when compatibility with OpenPGP prior to v6 matters.
+    /// SEIPDv1 is broadly supported, while SEIPDv2 is specified in the new OpenPGP
+    /// RFC 9580, and not supported by all implementations yet.
+    /// Therefore, SEIPDv1 encryption may sometimes be preferable for compatibility reasons.
+    ///
+    /// For more details refer to openpgp [documentation](https://openpgp.dev/book/migration.html#seipd-v2)
     pub fn encrypt_to_keys_seipdv1<R: CryptoRng + Rng>(
         &self,
         mut rng: R,
